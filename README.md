@@ -1,4 +1,4 @@
-## JCars Logistics Performance Analytics Dashboard
+## JCars Logistics Performance Analytics Project
 ## A Power BI project on car sales in Kenya.
 ### Project Objective
 The objective of this project was to import, clean, model, and visualize a flat, un-normalized dataset for JCars Logistics Company. By deploying a Star schema model, this interactive Power BI report reveals critical operational data points surrounding vehicle inventory profitability, supply chain logistics delays across Kenyan counties, and sales representative performance to inform high level decision making.
