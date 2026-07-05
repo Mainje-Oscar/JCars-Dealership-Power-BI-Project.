@@ -10,7 +10,7 @@ This process assumes that the database is already set up on Aiven. It further as
 
 **Importing Data**
 - **Step 1:** Open DBeaver, in the left navigator bar, expand the Aiven connection, in the created schema wherein the CSV file is to be imported and follow the steps below.
-Right-click your newly created table name in the left navigator bar, Select **Import Data → Imput files → Browse**.
+Right-click your newly created table name in the left navigator bar, Select **Import Data → Input files → Browse**.
 Choose CSV as the source and browse to locate the file on your laptop.
 Click **Next**, map your CSV headers to your database columns.
 Click **Start** to execute the pipeline upload into Aiven
@@ -21,16 +21,17 @@ Click **Start** to execute the pipeline upload into Aiven
 Open your web browser, navigate to your Aiven Console, and click on your running PostgreSQL service.
 Stay on the Overview page and scroll down to the Connection information section.
 Locate the row labeled CA Certificate and click the Download button next to it.
-This will save a file named ca.pem directly to the laptop's Downloads folder.
+This will save a file named `ca.pem` directly to the laptop's Downloads folder.
 
 - **Part B:** Install it into the Windows Trusted Root Store.
 To make this certificate trusted by Power BI for all connections, you must install it at the local machine.
 In the search box, **search Manage User Certificates**.
 In the left-hand console folder tree, expand Certificates.
-**Right-click** on the Trusted Root Certification Authorities folder → hover over** All Tasks → click Import**
+**Right-click** on the Trusted Root Certification Authorities folder → hover over **All Tasks → click Import**
 The Certificate Import Wizard will open.
 Click **Next → Browse**  to find your file.
-**Crucial Step**: In the file browser pop-up, change the file extension filter dropdown in the bottom right to All Files (*.*). Otherwise, your ca.pem file will stay hidden.
+
+**Crucial Step**: In the file browser pop-up, change the file extension filter dropdown in the bottom right to All Files. Otherwise, your `ca.pem` file will stay hidden.
 Navigate to your Downloads folder, select ca.pem, and click **Open**.
 Click **Next**.
 Ensure the option Place all certificates in the following store is selected and that it explicitly targets the Trusted Root Certification Authorities store.
@@ -43,19 +44,24 @@ Close the console.
 
 Now that your laptop recognizes Aiven as a trusted authority, you can complete the link securely.
 Launch Power BI Desktop. 
-On the top Home ribbon, click** Get Data → select More** → choose **Database** → select **PostgreSQL database**. 
+On the top Home ribbon, click **Get Data → select More** → choose **Database** → select **PostgreSQL database**. 
 Click **Connect**.
+
 Input your parameters copied from your Aiven Console:
 - Server: Enter your Host name followed by a colon and the port number (e.g.,**`oscar-oscarmainje-b405.j.aivencloud.com:Port Number`**)
-Database: **`defaultdb`**
+- Database:Type  **`defaultdb`**
 
-Data Connectivity Mode: 
-- Select Import. Click **OK**.
+Data Connectivity Mode
+
+Select **Import**.
+Click **OK**.
+
 When the database authentication window pops up, click the Database tab on the left-side margin.
-- Input your database user details.
-User name: **`avnadmin`**
-Password: Paste your specific Aiven service password.
-Click **Connect**.
+Input your database user details.
+- User name: **`avnadmin`**
+- Password: Paste your specific Aiven service password.
+  Click **Connect**
+  
 A Navigator canvas window will appear displaying your database contents. 
 Simply check the box next to your loaded table (jcars in my case) and click **Transform Data** to start transforming it within Power Query
 
